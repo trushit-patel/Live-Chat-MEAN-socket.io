@@ -1,0 +1,33 @@
+<div class="login">
+  <div class="avatar">
+    <img src="./../../assets/images/avatar.png" />
+  </div>
+  <h2>Login</h2>
+  <form class="login-form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <!-- <div class="form-group"> -->
+        <div class="textbox">
+          <input type="text" placeholder="Username" formControlName="username" [ngClass]="{ 'is-invalid': submitted && f.username.errors }" />
+          <span class="material-symbols-outlined"> account_circle </span>
+        </div>
+          <!-- <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+              <div *ngIf="f.username.errors.required">Username is required</div>
+          </div> -->
+      <!-- </div> -->
+      <!-- <div class="form-group"> -->
+        <div class="textbox">
+          <input type="password" placeholder="Password" formControlName="password" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+          <span class="material-symbols-outlined"> lock </span>
+        </div>
+          <!-- <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+              <div *ngIf="f.password.errors.required">Password is required</div>
+          </div> -->
+      <!-- </div> -->
+      <!-- <div class="form-group"> -->
+          <button [disabled]="loading" [class.disabled]="loading" >
+              <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1">Loading...</span>
+              <span *ngIf="!loading">Login</span>
+          </button>
+          <a routerLink="/register" class="btn btn-link">Register</a>
+      <!-- </div> -->
+  </form>
+</div>

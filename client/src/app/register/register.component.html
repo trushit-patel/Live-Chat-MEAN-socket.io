@@ -1,0 +1,50 @@
+<div class="login">
+  <div class="avatar">
+    <img src="./../../assets/images/avatar.png" />
+  </div>
+  <h2>Login</h2>
+  <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" class="login-form">
+    <div class="textbox">
+      <input type="text" placeholder="First Name" formControlName="firstName"
+        [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }" />
+      <span class="material-symbols-outlined"> account_circle </span>
+      <!-- <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
+            <div *ngIf="f.firstName.errors.required">First Name is required</div>
+        </div> -->
+    </div>
+    <div class="textbox">
+
+      <input type="text" placeholder="Last Name" formControlName="lastName"
+        [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }" />
+      <span class="material-symbols-outlined"> account_circle </span>
+      <!-- <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">
+            <div *ngIf="f.lastName.errors.required">Last Name is required</div>
+        </div> -->
+    </div>
+    <div class="textbox">
+
+      <input type="text" placeholder="Username" formControlName="username"
+        [ngClass]="{ 'is-invalid': submitted && f.username.errors }" />
+      <span class="material-symbols-outlined"> account_circle </span>
+      <!-- <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+            <div *ngIf="f.username.errors.required">Username is required</div>
+        </div> -->
+    </div>
+    <div class="textbox">
+
+      <input type="password" placeholder="Password" formControlName="password"
+        [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+      <span class="material-symbols-outlined"> lock </span>
+      <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+        <div *ngIf="f.password.errors.required">Password is required</div>
+        <div *ngIf="f.password.errors.minlength">Password must be at least 6 characters</div>
+      </div>
+    </div>
+
+    <button [disabled]="loading">
+      <span *ngIf="loading">Loading...</span>
+      <span *ngIf="!loading">Register</span>
+    </button>
+    <a routerLink="/login">Cancel</a>
+  </form>
+</div>

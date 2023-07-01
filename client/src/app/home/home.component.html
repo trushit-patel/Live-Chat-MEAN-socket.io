@@ -1,0 +1,67 @@
+<div class="row">
+  <div class="col-sm d-flex justify-content-center">
+    <div>
+      <h1>
+        <img src="../../assets/images/wave.png" alt="welcome icon" class="small-image" />
+        Hi
+        {{ currentUser.firstName }}!
+      </h1>
+      <p>
+        Yay! You logged in successfully!
+        <a (click)="deleteUser(currentUser._id)" class="text-danger">Delete</a>
+      </p>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm-3">
+    <!-- <div>
+      <h3>All registered users:</h3>
+      <ul>
+        <div *ngFor="let user of users">
+          <li *ngIf="user.username != currentUser.username" class="user-item" [class.active]="user.username == recieverUsername">
+            <a class="text-primary" (click)="startChat(user.username)">{{ user.username }} ({{ user.firstName }} {{ user.firstName }})</a>
+          </li>
+        </div>
+      </ul>
+    </div> -->
+    <div>
+      <h3>Onine users:</h3>
+      <ul>
+        <div *ngFor="let user of users">
+          <li *ngIf="user != currentUser.username" class="user-item" [class.active]="user == recieverUsername">
+            <a class="text-primary" (click)="startChat(user)">{{ user }}</a>
+          </li>
+        </div>
+      </ul>
+    </div>
+  </div>
+  <div class="col-sm-9">
+    <!-- <div >
+      <div class="text-box">
+        <input style="width: 90%" type="text" id="text-msg" />&nbsp;<input value="send" type="button" (click)="sendMessage()" />
+      </div>
+      <div *ngFor="let user of users"  >
+        <div *ngIf="user.username != currentUser.username" [class.active]="user.username == recieverUsername" id="outer-" class="chat-box my-2 border border-secondary rounded no-display">
+          <ul id="chat-canvas-{{user.username}}">
+          </ul>
+        </div>
+      </div>
+    </div> -->
+    <div >
+      <!-- <div class="text-box">
+        <input type="text" id="text-msg" />&nbsp;<button type="button" class="rounded-circle send btn-primary" (click)="sendMessage()"><i class="bi bi-send-fill"></i></button>
+      </div> -->
+      <div class="input-group mb-3">
+        <input type="text" id="text-msg" class="form-control" placeholder="Message..." aria-label="Message..." aria-describedby="button-addon2">
+        <button class="btn btn-outline-secondary btn-primary" (click)="sendMessage()" type="button" id="button-addon2"><i class="bi bi-send-fill text-white"></i></button>
+      </div>
+      <div *ngFor="let user of users"  >
+        <div *ngIf="user != currentUser.username" [class.active]="user == recieverUsername" class="chat-box border border-secondary rounded no-display">
+          <ul id="chat-canvas-{{user}}">
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
